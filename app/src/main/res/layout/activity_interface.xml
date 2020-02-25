@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Interface"
+    android:gravity="center">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Which Languages to Recognize"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/open_sans"
+        android:layout_marginTop="-200dp"
+        android:layout_centerHorizontal="true"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:gravity="center"
+       android:padding="20dp">
+
+
+       <Button
+           android:id="@+id/Ondevice"
+           android:layout_width="150dp"
+           android:layout_height="wrap_content"
+           android:background="@drawable/buttonradius"
+           android:fontFamily="@font/open_sans"
+           android:text="English"
+           android:textColor="#fff" />
+       <Space
+           android:layout_width="15dp"
+           android:layout_height="30dp"/>
+       <Button
+           android:id="@+id/Cloud"
+           android:layout_width="150dp"
+           android:layout_height="wrap_content"
+           android:text="Other Languages"
+           android:fontFamily="@font/open_sans"
+           android:background="@drawable/buttonradius"
+           android:textColor="#fff"
+
+           />
+
+   </LinearLayout>
+
+
+
+</RelativeLayout>

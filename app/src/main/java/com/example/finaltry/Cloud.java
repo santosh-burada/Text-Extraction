@@ -72,12 +72,12 @@ public class Cloud extends AppCompatActivity {
         cameraPermission = new String[] {Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         //storage permissions
         storagePermission = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        progressBar = new ProgressBar(Cloud.this, null, android.R.attr.progressBarStyleLarge);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(100, 100);
-        params.addRule(RelativeLayout.CENTER_IN_PARENT);
-        layout.addView(progressBar, params);
-
-        progressBar.setVisibility(View.GONE);
+//        progressBar = new ProgressBar(Cloud.this, null, android.R.attr.progressBarStyleLarge);
+//        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(100, 100);
+//        params.addRule(RelativeLayout.CENTER_IN_PARENT);
+//        layout.addView(progressBar, params);
+//
+//        progressBar.setVisibility(View.GONE);
     }
 
     //Actionbar menu
@@ -270,7 +270,7 @@ public class Cloud extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
                                 });*/
-                progressBar.setVisibility(View.VISIBLE);
+                /*progressBar.setVisibility(View.VISIBLE);*/
                 FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
 
                 FirebaseVisionDocumentTextRecognizer recognizer = FirebaseVision.getInstance()
@@ -283,7 +283,7 @@ public class Cloud extends AppCompatActivity {
 
 
                                         processCloudTextRecognitionResult(texts);
-                                        progressBar.setVisibility(View.GONE);
+                                        /*progressBar.setVisibility(View.GONE);*/
 
 
                                     }

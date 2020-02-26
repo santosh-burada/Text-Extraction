@@ -38,7 +38,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.List;
 
-public class Cloud extends AppCompatActivity {
+public class CloudActivity extends AppCompatActivity {
 
     EditText editText;
     ImageView imageView1;
@@ -50,8 +50,8 @@ public class Cloud extends AppCompatActivity {
     private static final int IMAGE_PICK_GALLERY_CODE = 1000;
     private static final int IMAGE_PICK_CAMERA_CODE = 1001;
 
-    String cameraPermission[];
-    String storagePermission[];
+    String[] cameraPermission;
+    String[] storagePermission;
 
     Uri image_uri;
 
@@ -62,6 +62,7 @@ public class Cloud extends AppCompatActivity {
         setContentView(R.layout.activity_cloud);
         RelativeLayout layout = findViewById(R.id.relative);
         ActionBar actionBar=getSupportActionBar();
+        assert actionBar != null;
         actionBar.setSubtitle("Pick Image-->");
 
 
@@ -225,27 +226,28 @@ public class Cloud extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (resultCode == RESULT_OK){
-            if (requestCode==IMAGE_PICK_GALLERY_CODE){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == IMAGE_PICK_GALLERY_CODE) {
 
                 CropImage.activity(data.getData()).setGuidelines(CropImageView.Guidelines.ON).start(this);
 
             }
-            if (requestCode==IMAGE_PICK_CAMERA_CODE){
+            if (requestCode == IMAGE_PICK_CAMERA_CODE) {
                 CropImage.activity(image_uri).setGuidelines(CropImageView.Guidelines.ON).start(this);
 
             }
         }
 
-        if (requestCode==CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
-            CropImage.ActivityResult result =CropImage.getActivityResult(data);
-            if(resultCode == RESULT_OK){
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
 
                 Uri resulturi1 = result.getUri();
                 imageView1.setImageURI(resulturi1);
 
-                BitmapDrawable bitmapDrawable=(BitmapDrawable)imageView1.getDrawable();
-                Bitmap bitmap=bitmapDrawable.getBitmap();
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView1.getDrawable();
+                Bitmap bitmap = bitmapDrawable.getBitmap();
 
 
 

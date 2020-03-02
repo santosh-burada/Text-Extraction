@@ -49,7 +49,7 @@ import java.util.Objects;
 public class OndeviceActivity extends AppCompatActivity {
 
     private static final String TAG = "RESPONSE_DATA";
-    TextView editText;
+    EditText editText;
     ImageView imageView1;
 
 
@@ -71,6 +71,7 @@ public class OndeviceActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         editText = findViewById(R.id.editText2);
+        editText.setEnabled(false);
         imageView1 = findViewById(R.id.imageView2);
 
         //camera permissions
@@ -298,7 +299,8 @@ public class OndeviceActivity extends AppCompatActivity {
             editText.setText("No Text Found in the above Image");
         }else {
             Log.d(TAG, "displayTextFromImage: " + block);
-            editText.setText("The text in the above image was : " + block);
+            editText.setEnabled(true);
+            editText.setText("The text in the above image was : \n\n" + block);
         }
 
 

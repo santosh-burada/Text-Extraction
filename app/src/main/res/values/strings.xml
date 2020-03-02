@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalTry</string>
+    <string name="app_name">Text Recognition</string>
     <string name="text_recognition">Text Recognition</string>
     <string name="choose_which_languages_to_recognize">Choose Which Languages to Recognize</string>
     <string name="other_languages">Other Languages</string>

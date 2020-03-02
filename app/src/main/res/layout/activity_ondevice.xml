@@ -24,7 +24,7 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/image_not_available" />
 
-        <TextView
+        <EditText
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

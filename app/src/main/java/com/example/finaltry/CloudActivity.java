@@ -60,13 +60,14 @@ public class CloudActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cloud);
-        RelativeLayout layout = findViewById(R.id.relative);
+
         ActionBar actionBar=getSupportActionBar();
         assert actionBar != null;
         actionBar.setSubtitle("Pick Image-->");
 
 
         editText=findViewById(R.id.editText);
+        editText.setEnabled(false);
         imageView1=findViewById(R.id.imageView);
 
         //camera permissions
@@ -316,7 +317,8 @@ public class CloudActivity extends AppCompatActivity {
             for (FirebaseVisionDocumentText.Block block: texts.getBlocks())
             {
                 String text =block.getText();
-                editText.setText(text);
+                editText.setEnabled(true);
+                editText.setText("The text in the above image was : \n\n" + text);
             }
         }
     }

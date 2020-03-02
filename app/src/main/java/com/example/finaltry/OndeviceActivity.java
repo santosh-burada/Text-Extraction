@@ -64,6 +64,7 @@ public class OndeviceActivity extends AppCompatActivity {
     Uri image_uri;
 
 
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,7 @@ public class OndeviceActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText2);
         editText.setEnabled(false);
         imageView1 = findViewById(R.id.imageView2);
+        progressBar = findViewById(R.id.progressBar);
 
         //camera permissions
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -252,6 +254,9 @@ public class OndeviceActivity extends AppCompatActivity {
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView1.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
                 try {
+
+                    progressBar.setVisibility(View.VISIBLE);
+
                     FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
                     //FirebaseVisionImage image = FirebaseVisionImage.fromFilePath(OndeviceActivity.this, resulturi1);
                     FirebaseVisionTextRecognizer recognizer = FirebaseVision.getInstance()
@@ -262,6 +267,7 @@ public class OndeviceActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(FirebaseVisionText texts) {
                                             displayTextFromImage(texts);
+                                            progressBar.setVisibility(View.GONE);
                                         }
                                     })
                             .addOnFailureListener(
@@ -270,6 +276,7 @@ public class OndeviceActivity extends AppCompatActivity {
                                         public void onFailure(@NonNull Exception e) {
                                             // Task failed with an exception
 
+                                            progressBar.setVisibility(View.GONE);
                                             e.printStackTrace();
                                         }
                                     });

@@ -105,6 +105,19 @@ public class OndeviceActivity extends AppCompatActivity {
         } else if (id == android.R.id.home) {
 
             onBackPressed();
+        }else if (id == R.id.translate ){
+            String edi = editText.getText().toString();
+
+            if (edi.equals("")) {
+                Toast.makeText(this, "please get the text first", Toast.LENGTH_SHORT).show();
+            } else{
+                String query=editText.getText().toString();
+                /* translate();*/
+                Intent intent = new Intent(OndeviceActivity.this, Translate.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("edittext",query);
+                startActivity(intent);
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -307,7 +320,7 @@ public class OndeviceActivity extends AppCompatActivity {
         }else {
             Log.d(TAG, "displayTextFromImage: " + block);
             editText.setEnabled(true);
-            editText.setText("The text in the above image was : \n\n" + block);
+            editText.setText("" + block);
         }
 
 

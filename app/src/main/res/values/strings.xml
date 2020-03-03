@@ -9,4 +9,20 @@
     <string name="please_upload_an_image">Please Upload an Image...</string>
     <string name="add_image">Add Image</string>
     <string name="settings">Settings</string>
+    <string name="spiner_title">spinertitle</string>
+
+    <string-array name="language_array">
+        <item>Select Language</item>
+        <item>Telugu</item>
+        <item>English</item>
+        <item>Tamil</item>
+        <item>Kannada</item>
+        <item>Oriya</item>
+        <item>Urdu</item>
+        <item> Sanskrit</item>
+        <item>Malayalam</item>
+        <item>Bengali</item>
+    </string-array>
+
 </resources>
+

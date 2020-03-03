@@ -37,12 +37,13 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CloudActivity extends AppCompatActivity {
 
     EditText editText;
     ImageView imageView1;
-    ProgressBar progressBar;
+    ProgressBar progressBar2;
 
 
     private static final int CAMERA_REQUEST_CODE = 200;
@@ -60,26 +61,23 @@ public class CloudActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cloud);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        ActionBar actionBar=getSupportActionBar();
-        assert actionBar != null;
-        actionBar.setSubtitle("Pick Image-->");
+//        ActionBar actionBar=getSupportActionBar();
+//        assert actionBar != null;
+//        actionBar.setSubtitle("Pick Image-->");
 
 
         editText=findViewById(R.id.editText);
         editText.setEnabled(false);
         imageView1=findViewById(R.id.imageView);
+        progressBar2=findViewById(R.id.progressBar2);
 
         //camera permissions
         cameraPermission = new String[] {Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         //storage permissions
         storagePermission = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-//        progressBar = new ProgressBar(Cloud.this, null, android.R.attr.progressBarStyleLarge);
-//        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(100, 100);
-//        params.addRule(RelativeLayout.CENTER_IN_PARENT);
-//        layout.addView(progressBar, params);
 //
-//        progressBar.setVisibility(View.GONE);
     }
 
     //Actionbar menu
@@ -93,17 +91,40 @@ public class CloudActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        int id=item.getItemId();
-        if(id == R.id.addImage){
+        int id = item.getItemId();
+
+        if (id == R.id.addImage) {
 
             showImageImportDialog();
-        }
-        if (id == R.id.settings){
 
+        } else if (id == android.R.id.home) {
+
+            onBackPressed();
+        }else if (id == R.id.translate ){
+            String edi = editText.getText().toString();
+
+            if (edi.equals("")) {
+                Toast.makeText(this, "please get the text first", Toast.LENGTH_SHORT).show();
+            } else{
+                String query=editText.getText().toString();
+           /* translate();*/
+            Intent intent = new Intent(CloudActivity.this, Translate.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("edittext",query);
+            startActivity(intent);
+            }
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    /*private void translate() {
+        String query = editText.getText().toString();
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+        intent.setClassName("com.google.android.googlequicksearchbox", "com.google.android.googlequicksearchbox.SearchActivity");
+        intent.putExtra("query", query);
+        startActivity(intent);
+    }*/
 
     private void showImageImportDialog() {
 
@@ -273,7 +294,7 @@ public class CloudActivity extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
                                 });*/
-                /*progressBar.setVisibility(View.VISIBLE);*/
+                progressBar2.setVisibility(View.VISIBLE);
                 FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
 
                 FirebaseVisionDocumentTextRecognizer recognizer = FirebaseVision.getInstance()
@@ -286,7 +307,7 @@ public class CloudActivity extends AppCompatActivity {
 
 
                                         processCloudTextRecognitionResult(texts);
-                                        /*progressBar.setVisibility(View.GONE);*/
+                                        progressBar2.setVisibility(View.GONE);
 
 
                                     }
@@ -318,7 +339,7 @@ public class CloudActivity extends AppCompatActivity {
             {
                 String text =block.getText();
                 editText.setEnabled(true);
-                editText.setText("The text in the above image was : \n\n" + text);
+                editText.setText("" + text);
             }
         }
     }

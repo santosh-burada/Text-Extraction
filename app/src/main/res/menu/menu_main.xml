@@ -2,7 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+    <item
+        android:id="@+id/translate"
+        android:title="translate"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_translate_black"/>
     <item
         android:id="@+id/addImage"
         android:title="@string/add_image"
@@ -11,5 +15,7 @@
     <item
         android:id="@+id/settings"
         android:title="@string/settings"/>
+
+
 
 </menu>

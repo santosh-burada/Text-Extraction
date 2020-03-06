@@ -4,12 +4,12 @@
     <string name="choose_which_languages_to_recognize">Choose Which Languages to Recognize</string>
     <string name="other_languages">Other Languages</string>
     <string name="english">English</string>
-    <string name="please_wait">Please Wait...</string>
-    <string name="capture_an_image">Capture an Image...</string>
-    <string name="please_upload_an_image">Please Upload an Image...</string>
+    <string name="please_wait">Please Wait…</string>
+    <string name="capture_an_image">Capture an Image…</string>
+    <string name="please_upload_an_image">Please Upload an Image…</string>
     <string name="add_image">Add Image</string>
     <string name="settings">Settings</string>
-    <string name="spiner_title">spinertitle</string>
+
 
     <string-array name="language_array">
         <item>Select Language</item>

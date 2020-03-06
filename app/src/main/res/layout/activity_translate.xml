@@ -38,15 +38,16 @@
              />
     </LinearLayout>
 
-    <Button
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="137dp" />
+   <Button
+       android:id="@+id/button"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/linear_layout"
+       android:gravity="center"
+       android:layout_centerInParent="true"
+       android:text="Search"
+       android:fontFamily="@font/open_sans"
+       />
 
 
 </RelativeLayout>

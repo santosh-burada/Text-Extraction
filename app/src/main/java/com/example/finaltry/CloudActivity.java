@@ -107,11 +107,11 @@ public class CloudActivity extends AppCompatActivity {
                 Toast.makeText(this, "please get the text first", Toast.LENGTH_SHORT).show();
             } else{
                 String query=editText.getText().toString();
-           /* translate();*/
-            Intent intent = new Intent(CloudActivity.this, Translate.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("edittext",query);
-            startActivity(intent);
+                /* translate();*/
+                Intent intent = new Intent(CloudActivity.this, Translate.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("edittext",query);
+                startActivity(intent);
             }
         }
 

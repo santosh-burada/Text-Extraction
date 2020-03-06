@@ -49,7 +49,7 @@ public class Translate extends Activity implements AdapterView.OnItemSelectedLis
     {
 
         item = parent.getItemAtPosition(pos).toString();
-        Toast.makeText(parent.getContext(),"selected: "+item, Toast.LENGTH_SHORT).show();
+
     }
     public void onNothingSelected(AdapterView<?> arg0) {
 
